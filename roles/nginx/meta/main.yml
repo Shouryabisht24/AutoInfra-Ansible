@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  role_name: nginx
+  author: Shourya
+  description: Install and configure Nginx web server with templated config
+  license: MIT
+  min_ansible_version: "2.16"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - noble
+    - name: EL
+      versions:
+        - "9"
+    - name: Amazon
+      versions:
+        - "2018.03"
+
+dependencies: []

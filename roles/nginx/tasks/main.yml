@@ -1,0 +1,28 @@
+---
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+  become: true
+
+- name: Create root directory
+  file:
+    path: "{{ nginx_root }}"
+    state: directory
+    mode: '0755'
+  become: true
+
+- name: Deploy nginx site configuration
+  template:
+    src: index.html.j2
+    dest: "{{ nginx_root }}/index.html"
+    mode: '0644'
+  become: true
+  notify: Reload Nginx
+
+- name: Ensure Nginx is running and enabled
+  service:
+    name: nginx
+    state: started
+    enabled: true
+  become: true  
