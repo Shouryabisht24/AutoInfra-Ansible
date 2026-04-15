@@ -1,0 +1,13 @@
+---
+-  name: Include OS-specific Terraform installation
+   include_tasks: "install_{{ ansible_distribution | lower | replace(' ', '_') }}.yml"
+
+# Common task (runs for all OS)
+- name: Check Terraform version
+  command: terraform --version
+  register: terraform_version_output
+  changed_when: false
+
+- name: Show Terraform version
+  debug:
+    msg: "{{ terraform_version_output.stdout }}"

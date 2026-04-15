@@ -1,0 +1,4 @@
+---
+- name: Terraform Installed
+  debug:
+    msg: "Terraform installation completed successfully!"

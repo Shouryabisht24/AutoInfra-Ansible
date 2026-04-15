@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  role_name: terraform
+  author: Shourya
+  description: Install and configure Terraform across multiple OS families
+  license: MIT
+  min_ansible_version: "2.16"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - noble
+    - name: EL
+      versions:
+        - "9"
+    - name: Amazon
+      versions:
+        - "2017.09"
+
+dependencies: []

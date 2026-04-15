@@ -1,0 +1,19 @@
+---
+- name: Install dependencies (Amazon Linux)
+  yum:
+    name:
+      - wget
+      - unzip
+    state: present
+
+- name: Download Terraform (Amazon)
+  get_url:
+    url: "{{ terraform_download_url }}/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip"
+    dest: /tmp/terraform.zip
+
+- name: Install Terraform (Amazon)
+  unarchive:
+    src: /tmp/terraform.zip
+    dest: "{{ terraform_install_dir }}"
+    remote_src: yes
+  notify: Terraform Installed
